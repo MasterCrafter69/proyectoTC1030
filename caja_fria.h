@@ -1,12 +1,10 @@
 #ifndef PROYECTOTC1030_CAJA_FRIA_H
 #define PROYECTOTC1030_CAJA_FRIA_H
+#include "cargamento.h"
 
-#include <iostream>
-#include <string>
-#include "Cargamento.h"
 using namespace std;
 
-class Caja_Fria : public Cargamento
+class caja_fria : public cargamento
 {
 protected:
     string contenido;
@@ -14,8 +12,8 @@ protected:
     double temperatura;
 
 public:
-    Caja_Fria(string c, string o, string r, string cont, double p, double temp)
-            : Cargamento(c, o, r), contenido(cont), peso(p), temperatura(temp)
+    caja_fria(string c, string o, string r, string cont, double p, double temp)
+            : cargamento(c, o, r), contenido(cont), peso(p), temperatura(temp)
     {}
 
     // Implementación del método virtual puro de la clase padre

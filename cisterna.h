@@ -1,18 +1,18 @@
 #ifndef PROYECTOTC1030_CISTERNA_H
 #define PROYECTOTC1030_CISTERNA_H
-#include "Cargamento.h"
+#include "cargamento.h"
 
 using namespace std;
 
-class Cisterna : public Cargamento
+class cisterna : public cargamento
 {
 protected:
     string contenido;
     double peso;
 
 public:
-    Cisterna(string c, string o, string r, string cont, double p)
-            : Cargamento(c, o, r), contenido(cont), peso(p)
+    cisterna(string c, string o, string r, string cont, double p)
+            : cargamento(c, o, r), contenido(cont), peso(p)
     {}
 
     void informacion() override {

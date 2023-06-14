@@ -1,10 +1,10 @@
 #ifndef PROYECTOTC1030_TAULINER_H
 #define PROYECTOTC1030_TAULINER_H
-#include "Cargamento.h"
+#include "cargamento.h"
 
 using namespace std;
 
-class Tauliner : public Cargamento
+class tauliner : public cargamento
 {
 protected:
     string contenido;
@@ -12,8 +12,8 @@ protected:
 
 public:
     // Constructor
-    Tauliner(string c, string o, string r, string cont, double p)
-            : Cargamento(c, o, r), contenido(cont), peso(p)
+    tauliner(string c, string o, string r, string cont, double p)
+            : cargamento(c, o, r), contenido(cont), peso(p)
     {}
 
     // Implementación del método virtual puro de la clase padre (Sobreescritura de métodos)

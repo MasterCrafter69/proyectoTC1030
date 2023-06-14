@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Cargamento
+class cargamento
 {
 protected:
     string cliente;
@@ -14,7 +14,7 @@ protected:
 
 public:
     // Constructor
-    Cargamento(string c, string o, string r)
+    cargamento(string c, string o, string r)
             : cliente(c), origen(o), remolques(r)
     {}
 
