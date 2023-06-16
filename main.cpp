@@ -9,43 +9,35 @@
 using namespace std;
 
 int main() {
+    // Crear algunos trailers
+    trailer tr1("ABC123", "Modelo1", "Chofer1");
+    trailer tr2("XYZ789", "Modelo2", "Chofer2");
+    trailer tr3("MNO456", "Modelo3", "Chofer3");
+    
     // Crear algunos cargamentos
     tauliner t1("Cliente 1", "Origen 1", "Remolques 1", "Contenido 1", 200.5);
     cisterna c1("Cliente 2", "Origen 2", "Remolques 2", "Contenido 2", 1000.0);
     caja_fria cf1("Cliente 3", "Origen 3", "Remolques 3", "Contenido 3", 500.0, 5.0);
 
-    // Crear algunos trailers
-    trailer tr1("ABC123", "Modelo1", "Chofer1");
-    trailer tr2("XYZ789", "Modelo2", "Chofer2");
-    trailer tr3("MNO456", "Modelo3", "Chofer3");
+    // Asignar cargamentos a trailers
+    tr1.setCargamento(&t1);
+    tr2.setCargamento(&c1);
+    tr3.setCargamento(&cf1);
 
     // Crear un almacén
-    almacen almacen("hola", "Queretaro");
+    almacen almacen("Mi Empresa", "Mi Ciudad");
 
-    // Agregar los trailers y los cargamentos al almacén
-    almacen.agregarTrailer(tr1);
-    almacen.agregarTrailer(tr2);
-    almacen.agregarTrailer(tr3);
+    // Agregar los trailers al almacén
+    almacen.addTrailer(tr1);
+    almacen.addTrailer(tr2);
+    almacen.addTrailer(tr3);
 
-    almacen.agregarCargamento(&t1);
-    almacen.agregarCargamento(&c1);
-    almacen.agregarCargamento(&cf1);
+    // Mostrar información del almacén
+    almacen.mostrarInformacion();
 
-    // Mostrar el nombre de la empresa y su ubicación
-    cout << "Nombre de la Empresa: " << almacen.getNombreEmpresa() << endl;
-    cout << "Ubicación: " << almacen.getUbicacion() << endl << endl;
-
-    // Mostrar información de los trailers en el almacén
-    cout << "Trailers en el almacén:" << endl;
+    // Mostrar información de los trailers y sus cargamentos en el almacén
     for (auto tr : almacen.getTrailers()) {
         tr.mostrarInformacion();
-        cout << endl;
-    }
-
-    // Mostrar información de los cargamentos en el almacén
-    cout << "Cargamentos en el almacén:" << endl;
-    for (auto cargamento : almacen.getCargamentos()) {
-        cargamento->informacion();
         cout << endl;
     }
 
