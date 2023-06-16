@@ -31,7 +31,7 @@ public:
     void addTrailer(trailer tr) { trailers.push_back(tr); }
 
     // Método para obtener la lista de trailers
-    vector<trailer> getTrailers() { return trailers; }
+    vector<trailer>& getTrailers() { return trailers; }
 
     // Método para mostrar la información del almacén
     void mostrarInformacion() {
