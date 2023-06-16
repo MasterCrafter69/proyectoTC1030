@@ -1,5 +1,6 @@
 #ifndef PROYECTOTC1030_CARGAMENTO_H
 #define PROYECTOTC1030_CARGAMENTO_H
+
 #include <iostream>
 #include <string>
 
@@ -9,27 +10,28 @@ class cargamento
 {
 protected:
     string cliente;
-    string origen;
+    string ciudadOrigen;
+    string ciudadDestino;
     string remolques;
 
 public:
-    // Constructor
-    cargamento(string c, string o, string r)
-            : cliente(c), origen(o), remolques(r)
+    cargamento(string c, string o, string d, string r)
+            : cliente(c), ciudadOrigen(o), ciudadDestino(d), remolques(r)
     {}
 
-    // Método virtual puro (sobreescritura en las clases derivadas)
     virtual void informacion() = 0;
 
-    // Métodos de acceso
     void setCliente(string c) { cliente = c; }
     string getCliente() { return cliente; }
 
-    void setOrigen(string o) { origen = o; }
-    string getOrigen() { return origen; }
+    void setCiudadOrigen(string o) { ciudadOrigen = o; }
+    string getCiudadOrigen() { return ciudadOrigen; }
+
+    void setCiudadDestino(string d) { ciudadDestino = d; }
+    string getCiudadDestino() { return ciudadDestino; }
 
     void setRemolques(string r) { remolques = r; }
     string getRemolques() { return remolques; }
 };
 
-#endif //PROYECTOTC1030_CARGAMENTO_H
+#endif // PROYECTOTC1030_CARGAMENTO_H

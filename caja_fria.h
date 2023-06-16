@@ -1,26 +1,21 @@
 #ifndef PROYECTOTC1030_CAJA_FRIA_H
 #define PROYECTOTC1030_CAJA_FRIA_H
-#include "cargamento.h"
 
-using namespace std;
+#include "cargamento.h"
 
 class caja_fria : public cargamento
 {
-protected:
+private:
     string contenido;
     double peso;
     double temperatura;
 
 public:
-    caja_fria(string c, string o, string r, string cont, double p, double temp)
-            : cargamento(c, o, r), contenido(cont), peso(p), temperatura(temp)
+    caja_fria(string c, string o, string d, string r, string cont, double p, double temp)
+            : cargamento(c, o, d, r), contenido(cont), peso(p), temperatura(temp)
     {}
 
-    // Implementación del método virtual puro de la clase padre
     void informacion() override {
-        cout << "Cliente: " << getCliente() << endl;
-        cout << "Origen: " << getOrigen() << endl;
-        cout << "Remolques: " << getRemolques() << endl;
         cout << "Contenido: " << contenido << endl;
         cout << "Peso: " << peso << " Kilogramos" << endl;
         cout << "Temperatura: " << temperatura << " °C" << endl;
@@ -36,4 +31,4 @@ public:
     double getTemperatura() { return temperatura; }
 };
 
-#endif //PROYECTOTC1030_CAJA_FRIA_H
+#endif // PROYECTOTC1030_CAJA_FRIA_H

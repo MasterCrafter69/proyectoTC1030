@@ -1,24 +1,20 @@
 #ifndef PROYECTOTC1030_CISTERNA_H
 #define PROYECTOTC1030_CISTERNA_H
-#include "cargamento.h"
 
-using namespace std;
+#include "cargamento.h"
 
 class cisterna : public cargamento
 {
-protected:
+private:
     string contenido;
     double peso;
 
 public:
-    cisterna(string c, string o, string r, string cont, double p)
-            : cargamento(c, o, r), contenido(cont), peso(p)
+    cisterna(string c, string o, string d, string r, string cont, double p)
+            : cargamento(c, o, d, r), contenido(cont), peso(p)
     {}
 
     void informacion() override {
-        cout << "Cliente: " << getCliente() << endl;
-        cout << "Origen: " << getOrigen() << endl;
-        cout << "Remolques: " << getRemolques() << endl;
         cout << "Contenido: " << contenido << endl;
         cout << "Peso: " << peso << " litros" << endl;
     }
@@ -30,4 +26,4 @@ public:
     double getPeso() { return peso; }
 };
 
-#endif //PROYECTOTC1030_CISTERNA_H
+#endif // PROYECTOTC1030_CISTERNA_H

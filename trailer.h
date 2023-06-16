@@ -20,6 +20,15 @@ public:
             : placa(pl), modelo(mo), chofer(ch), carga(nullptr)
     {}
 
+    // Destructor
+    ~trailer() {
+        delete carga; // Liberar la memoria asignada a carga
+    }
+
+    void setCargamento(cargamento* c) {
+        this->carga = c;
+    }
+
     // Métodos de acceso
     void setPlaca(string pl) { placa = pl; }
     string getPlaca() { return placa; }
@@ -30,8 +39,6 @@ public:
     void setChofer(string ch) { chofer = ch; }
     string getChofer() { return chofer; }
 
-    // Método para establecer el cargamento para el trailer
-    void setCargamento(cargamento* c) { carga = c; }
 
     // Método para obtener el cargamento del trailer
     cargamento* getCargamento() { return carga; }
@@ -47,6 +54,8 @@ public:
             carga->informacion();
         }
     }
+
+
 };
 
 #endif //PROYECTOTC1030_TRAILER_H

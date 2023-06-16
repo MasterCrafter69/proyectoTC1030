@@ -1,43 +1,64 @@
-#ifndef PROYECTOTC1030_ALMACEN_H
-#define PROYECTOTC1030_ALMACEN_H
-#include <iostream>
+#ifndef ALMACEN_H
+#define ALMACEN_H
 #include <vector>
-#include <string>
+#include <iostream>
 #include "trailer.h"
 
 using namespace std;
-
-class almacen
-{
+class almacen {
 private:
     string nombre;
     string ubicacion;
-    vector<trailer> trailers;  // Almacena una lista de trailers
+    vector<trailer> trailers;
 
 public:
-    // Constructor
-    almacen(string n, string u)
-            : nombre(n), ubicacion(u)
-    {}
+    almacen(string nombre, string ubicacion) : nombre(nombre), ubicacion(ubicacion) {}
 
-    // Métodos de acceso
-    void setNombre(string n) { nombre = n; }
-    string getNombre() { return nombre; }
+    void addTrailer(const trailer& t) {
+        trailers.push_back(t);
+    }
 
-    void setUbicacion(string u) { ubicacion = u; }
-    string getUbicacion() { return ubicacion; }
+    void removeTrailer(const string& placa) {
+        for(auto it = trailers.begin(); it != trailers.end(); ++it) {
+            if(it->getPlaca() == placa) {
+                trailers.erase(it);
+                return;
+            }
+        }
+        cout << "El trailer con la placa " << placa << " no se encontró en el almacén.\n";
+    }
 
-    // Método para agregar un trailer al almacén
-    void addTrailer(trailer tr) { trailers.push_back(tr); }
+    trailer* getTrailer(string placa) {
+        for (auto& t : trailers) {
+            if (t.getPlaca() == placa) {
+                return &t;
+            }
+        }
+        return nullptr;
+    }
 
-    // Método para obtener la lista de trailers
-    vector<trailer>& getTrailers() { return trailers; }
+    vector<trailer>& getTrailers() {
+        return trailers;
+    }
 
-    // Método para mostrar la información del almacén
     void mostrarInformacion() {
-        cout << "Nombre: " << getNombre() << endl;
-        cout << "Ubicación: " << getUbicacion() << endl;
+        cout << "\nNombre de la empresa: " << nombre;
+        cout << "\nUbicación: " << ubicacion;
+
+        if (trailers.empty()) {
+            cout << "\nNo hay trailers en este almacen.\n";
+        } else {
+            cout << "\nTrailers: \n";
+            for (auto& tr : trailers) {
+                tr.mostrarInformacion();
+                if (tr.getCargamento() != nullptr) {
+                    cout << "Cargamento: ";
+                    tr.getCargamento()->informacion();
+                    cout << "\n";
+                }
+            }
+        }
     }
 };
 
-#endif //PROYECTOTC1030_ALMACEN_H
+#endif // ALMACEN_H
